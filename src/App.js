@@ -28,11 +28,10 @@ const App = () => (
           <CssBaseline />
           <MainLayout>
             <Switch>
-              <Route exact path='/' component={Homepage} />
-              {/* <Route exact path='/cart' component={Cart} /> */}
-              <Route exact path='/product/:id' component={Product} />
-              <Route exact path='/ordersummary' component={OrderSummary} />
-              <Route path='*' component={NotFound} />
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/product/:id" component={Product} />
+              <Route exact path="/ordersummary" component={OrderSummary} />
+              <Route path="*" component={NotFound} />
             </Switch>
           </MainLayout>
         </ThemeProvider>
