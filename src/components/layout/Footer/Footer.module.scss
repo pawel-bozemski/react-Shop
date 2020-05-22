@@ -2,24 +2,12 @@
 
 .root {
   background: $background-foot;
-  margin-top: 35px;
-  padding-top: 15px;
-  position:absolute;
-  left:0;
-  bottom:0;
-  right:0;
 
   .foot {
     display: flex;
     justify-content: center;
 
     .media {
-
-      ul {
-        list-style: none;
-        display: flex;
-        padding: 5px;
-        margin: 5px;
         a {
           color: $font-light;
           margin: 5px;
@@ -31,4 +19,4 @@
       }
     }
   }
-}
+

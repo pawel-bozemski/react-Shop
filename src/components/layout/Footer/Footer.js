@@ -16,23 +16,15 @@ const Component = ({ className }) => (
     <div className={styles.foot}>
       <div className={styles.media}>
         <p>Check our social media</p>
-        <ul>
-          <li>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <InstagramIcon>Instagram</InstagramIcon>
-            </a>
-          </li>
-          <li>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FacebookIcon>Facebook</FacebookIcon>
-            </a>
-          </li>
-          <li>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-              <YouTubeIcon>YouTube</YouTubeIcon>
-            </a>
-          </li>
-        </ul>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <InstagramIcon>Instagram</InstagramIcon>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <FacebookIcon>Facebook</FacebookIcon>
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <YouTubeIcon>YouTube</YouTubeIcon>
+        </a>
       </div>
     </div>
   </div>
