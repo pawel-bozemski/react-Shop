@@ -6,6 +6,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 
+
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
@@ -14,6 +15,19 @@ import styles from './Footer.module.scss';
 const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.foot}>
+      <div className={styles.location}>
+        <ul>
+          <li>
+            <h1>You can find us here</h1>
+          </li>
+          <li>
+            <p>New shop</p>
+            <p>Best avenue 65</p>
+            <p>20-996</p>
+            <p>Lublin, Poland</p>
+          </li>
+        </ul>
+      </div>
       <div className={styles.media}>
         <p>Check our social media</p>
         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">

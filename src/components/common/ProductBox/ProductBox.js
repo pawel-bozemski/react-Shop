@@ -15,7 +15,7 @@ import Button from '@material-ui/core/Button';
 import styles from './ProductBox.module.scss';
 
 const Component = ({
-  className, title, image, price,
+  className, title, image, price, id,
 }) => (
   <div className={clsx(className, styles.root)}>
     <Card className={styles.card}>
@@ -32,8 +32,8 @@ const Component = ({
           </div>
         </CardContent>
         <CardActions>
-          <Button color="primary" variant="contained">More</Button>
-          <Button color="primary" variant="contained">Add to cart</Button>
+          <Button color="primary" href={`/products/${id}`} variant="outlined" size="small">More</Button>
+          <Button color="primary" variant="outlined" size="small">Add to cart</Button>
         </CardActions>
       </CardActionArea>
     </Card>
@@ -45,6 +45,7 @@ Component.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   image: PropTypes.string,
+  id: PropTypes.number,
 };
 
 // const mapStateToProps = state => ({

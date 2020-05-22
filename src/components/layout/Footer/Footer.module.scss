@@ -5,18 +5,31 @@
 
   .foot {
     display: flex;
-    justify-content: center;
+    font-size: 15px;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: row-reverse;
+    .location {
+      ul {
+        list-style: none;
+        p{
+          color: $font-light
+        }
+      }
+    }
 
     .media {
-        a {
-          color: $font-light;
-          margin: 5px;
+      margin: 30px;
+      padding: 30px;
+      a {
+        color: $font-light;
+        margin: 5px;
 
-          &:hover {
-            color: $second;
-          }
+        &:hover {
+          color: $second;
         }
       }
     }
   }
+}
 

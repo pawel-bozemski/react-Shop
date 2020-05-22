@@ -21,7 +21,7 @@ const Component = ({ className }) => (
             <Button>
               <ShoppingBasketIcon size="large" />
               <div className={styles.cartContent}>
-                5
+                0
               </div>
             </Button>
           </div>

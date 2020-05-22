@@ -6,11 +6,11 @@ import clsx from 'clsx';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Product.module.scss';
+import styles from './ProductPage.module.scss';
 
-const Component = ({ className, children }) => (
+const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Product</h2>
+    <h2>ProductPage</h2>
     {children}
   </div>
 );
@@ -31,7 +31,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Product,
-  // Container as Product,
-  Component as ProductComponent,
+  Component as ProductPage,
+  // Container as ProductPage,
+  Component as ProductPageComponent,
 };
