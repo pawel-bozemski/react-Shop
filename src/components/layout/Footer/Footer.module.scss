@@ -7,7 +7,7 @@
 
   .foot {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 
     .media {
 
@@ -18,8 +18,7 @@
         margin: 5px;
         a {
           color: $font-light;
-          margin: 0 5px;
-          font-size: 1em;
+          margin: 5px;
 
           &:hover {
             color: $second;

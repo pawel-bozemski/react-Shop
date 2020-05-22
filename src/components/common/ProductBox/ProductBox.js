@@ -22,7 +22,7 @@ const Component = ({
       <div>
         <img src={image} alt="alternative" className={styles.image} />
       </div>
-      <CardActionArea className={styles.actionArea}>
+      <CardActionArea>
         <CardContent className={styles.content}>
           <div className={styles.title}>
             {title}
@@ -31,8 +31,7 @@ const Component = ({
             $ {price}
           </div>
         </CardContent>
-
-        <CardActions className={styles.actions}>
+        <CardActions>
           <Button color="primary" variant="contained">More</Button>
           <Button color="primary" variant="contained">Add to cart</Button>
         </CardActions>

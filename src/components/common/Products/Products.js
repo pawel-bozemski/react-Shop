@@ -13,7 +13,6 @@ import styles from './Products.module.scss';
 
 const Component = ({ className, products }) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Our products</h2>
     <div className={styles.wrapper}>
       {products.map((product) => (<ProductBox key={product.id} {...product} />))}
     </div>
