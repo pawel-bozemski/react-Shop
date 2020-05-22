@@ -16,7 +16,7 @@ const Component = ({ className }) => (
         </Button>
         <div className={styles.menu}>
           <Button href="/" color="inherit">Home</Button>
-          <Button color="inherit">Contact</Button>
+          <Button href="/contact" color="inherit">Contact</Button>
           <div className={styles.cart}>
             <Button>
               <ShoppingBasketIcon size="large" />
@@ -25,9 +25,7 @@ const Component = ({ className }) => (
               </div>
             </Button>
           </div>
-
         </div>
-
       </Toolbar>
     </AppBar>
   </div>
