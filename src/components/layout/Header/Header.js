@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import styles from './Header.module.scss';
 
 const Component = ({ className }) => (
@@ -14,12 +15,19 @@ const Component = ({ className }) => (
           <h1>New Shop</h1>
         </Button>
         <div className={styles.menu}>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Categories</Button>
-          <Button color="inherit">About</Button>
+          <Button href="/" color="inherit">Home</Button>
           <Button color="inherit">Contact</Button>
-          <Button color="inherit">Cart</Button>
+          <div className={styles.cart}>
+            <Button>
+              <ShoppingBasketIcon size="large" />
+              <div className={styles.cartContent}>
+                5
+              </div>
+            </Button>
+          </div>
+
         </div>
+
       </Toolbar>
     </AppBar>
   </div>

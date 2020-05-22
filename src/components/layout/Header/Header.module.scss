@@ -2,18 +2,24 @@
 @import '../../../styles/settings.scss';
 
 .root {
-
   .toolbar {
     justify-content: space-between;
-
     .title:hover {
       background-color: transparent;
     }
-
     .menu {
-
+      display: flex;
       button:hover {
         color: $font-light;
+      }
+    }
+    .cart {
+      margin: 10px;
+      .cartContent {
+        background: $background-light;
+        padding: 5px 10px;
+        margin-left: 5px;
+        border-radius: 5px;
       }
     }
   }
