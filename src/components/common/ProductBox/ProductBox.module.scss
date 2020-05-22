@@ -10,23 +10,15 @@
       height: 200px;
       object-fit: cover;
     }
-
     .content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
       .title {
         text-transform: uppercase;
         font-weight: bold;
       }
-
       .price {
-        font-size: 1rem;
+        font-size: 20px;
         font-weight: bold;
         margin-top: 10px;
-        color: $background-dark;
       }
     }
   }
