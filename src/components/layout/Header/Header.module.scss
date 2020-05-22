@@ -4,14 +4,10 @@
 .root {
   .toolbar {
     justify-content: space-between;
-    .title:hover {
-      background-color: transparent;
-    }
+    background-color: $background-head;
     .menu {
       display: flex;
-      button:hover {
-        color: $font-light;
-      }
+      color: $font-light;
     }
     .cart {
       margin: 10px;
