@@ -1,4 +1,21 @@
+
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+
+  .toolbar {
+    justify-content: space-between;
+
+    .title:hover {
+      background-color: transparent;
+    }
+
+    .menu {
+
+      button:hover {
+        color: $font-light;
+      }
+    }
+  }
+
+}
