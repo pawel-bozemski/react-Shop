@@ -8,14 +8,11 @@ import Button from '@material-ui/core/Button';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { connect } from 'react-redux';
 import { CartBox } from '../CartBox/CartBox';
-
-
 import { getCart } from '../../../redux/cartRedux';
 
 import styles from './Cart.module.scss';
 
 const Component = ({ className, cart }) => {
-  console.log('cart', cart);
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -39,9 +36,9 @@ const Component = ({ className, cart }) => {
             <div className={styles.cartItems}>
               {cart.length ? (cart.map((prod) => (<CartBox key={prod.id} {...prod} />)))
                 : (
-                  <small className={styles.cartEmpty}>
+                  <div className={styles.cartEmpty}>
                     <p>Your cart is empty</p>
-                  </small>
+                  </div>
                 )}
             </div>
             {cart.length ? (

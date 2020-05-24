@@ -49,19 +49,8 @@ export const initialState = {
       error: false,
     },
   },
-  cart: [
-    {
-      id: '1',
-      title: 'book',
-      price: 10,
-      image: 'https://images.pexels.com/photos/5834/nature-grass-leaf-green.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    },
-    {
-      id: '6',
-      title: 'Doll',
-      price: 23,
-      image: 'https://images.pexels.com/photos/65451/pexels-photo-65451.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    },
-  ],
-
+  cart: {
+    products: [],
+    total: 0,
+  },
 };

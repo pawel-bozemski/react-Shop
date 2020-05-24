@@ -17,7 +17,7 @@ import { Container } from '@material-ui/core';
 import styles from './CartBox.module.scss';
 
 const Component = ({
-  className, title, image, price,
+  className, title, image, price, value,
 }) => (
   <div className={clsx(className, styles.root)}>
     <Container>
@@ -45,6 +45,10 @@ const Component = ({
               </Button>
             </TableCell>
             <TableCell align="center" className={styles.tableCell}>
+              <p>
+                {' '}
+                {value}
+              </p>
               $
               {price}
             </TableCell>
@@ -58,8 +62,9 @@ const Component = ({
 Component.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   image: PropTypes.string,
+  value: PropTypes.number,
 };
 
 // const mapStateToProps = state => ({
