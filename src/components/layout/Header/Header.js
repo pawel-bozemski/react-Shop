@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import { Cart } from '../../common/Cart/Cart';
 import styles from './Header.module.scss';
 
 const Component = ({ className }) => (
@@ -17,14 +17,7 @@ const Component = ({ className }) => (
         <div className={styles.menu}>
           <Button href="/" color="inherit">Home</Button>
           <Button href="/contact" color="inherit">Contact</Button>
-          <div className={styles.cart}>
-            <Button>
-              <ShoppingBasketIcon size="large" />
-              <div className={styles.cartContent}>
-                0
-              </div>
-            </Button>
-          </div>
+          <Cart />
         </div>
       </Toolbar>
     </AppBar>

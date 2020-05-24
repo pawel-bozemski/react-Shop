@@ -30,13 +30,13 @@ const Component = ({ className }) => (
       </div>
       <div className={styles.media}>
         <p>Check our social media</p>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://instagram.com">
           <InstagramIcon>Instagram</InstagramIcon>
         </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://facebook.com">
           <FacebookIcon>Facebook</FacebookIcon>
         </a>
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://youtube.com">
           <YouTubeIcon>YouTube</YouTubeIcon>
         </a>
       </div>

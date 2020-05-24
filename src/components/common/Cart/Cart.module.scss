@@ -1,0 +1,28 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    .cartButton {
+      margin: 10px;
+    .cartContent {
+      background: $background-light;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 5px;
+    }
+  }
+  .cartOpen {
+    position: absolute;
+    background-color:$background-light;
+    height: 100%;
+    width: 100%;
+    left: 10px;
+    right: 10px;
+    .cartItems {
+      background-color: #fafafa;
+      color: $font-dark;
+      box-shadow: 0px 2px 4px 0px #212121;
+
+    }
+  }
+
+ }
