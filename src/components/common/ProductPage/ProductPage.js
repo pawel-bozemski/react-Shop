@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable radix */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -16,7 +17,7 @@ const Component = ({ className, product, addToCart }) => {
     setValue(parseInt(target.value));
   };
   const {
-    content, image, title, price,
+    content, image, title, price, id,
   } = product;
 
   return (
@@ -44,7 +45,7 @@ const Component = ({ className, product, addToCart }) => {
             color="primary"
             variant="contained"
             onClick={() => addToCart({
-              title, price, image, value,
+              id, title, price, image, value,
             })}
           >
             Add to cart
@@ -63,6 +64,7 @@ Component.propTypes = {
     title: PropTypes.string,
     price: PropTypes.number,
     content: PropTypes.string,
+    id: PropTypes.string,
   }),
 };
 
@@ -72,9 +74,9 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addToCart: ({
-    title, price, image, value,
+    id, title, price, image, value,
   }) => dispatch(addToCart({
-    title, price, image, value,
+    id, title, price, image, value,
   })),
 });
 

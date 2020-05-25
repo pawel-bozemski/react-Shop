@@ -19,8 +19,8 @@ export const reducer = (statePart = [], action = {}) => {
     case ADD_TO_CART: {
       return {
         ...statePart,
-        products: [action.payload],
-        total: statePart.total + (action.payload.price * action.payload.value),
+        products: [...statePart.products, { ...action.payload }],
+        total: statePart.total + (action.payload.price),
       };
     }
     default:
