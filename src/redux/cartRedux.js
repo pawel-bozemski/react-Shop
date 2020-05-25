@@ -7,9 +7,11 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 
 /* action types */
 const ADD_TO_CART = createActionName('ADD_TO_CART');
+const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 
 /* action creators */
 export const addToCart = (payload) => ({ payload, type: ADD_TO_CART });
+export const removeFromCart = (payload) => ({ payload, type: REMOVE_FROM_CART });
 
 /* thunk creators */
 
@@ -21,6 +23,12 @@ export const reducer = (statePart = [], action = {}) => {
         ...statePart,
         products: [...statePart.products, { ...action.payload }],
         total: statePart.total + (action.payload.price),
+      };
+    }
+    case REMOVE_FROM_CART: {
+      return {
+        ...statePart,
+        products: statePart.products.filter((item) => item.id !== action.payload),
       };
     }
     default:
