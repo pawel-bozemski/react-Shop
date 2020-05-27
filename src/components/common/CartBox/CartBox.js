@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable no-shadow */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -9,15 +10,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
-
-
 import { connect } from 'react-redux';
-import { removeFromCart } from '../../../redux/cartRedux';
+import { removeFromCart, updateValue } from '../../../redux/cartRedux';
 
 import styles from './CartBox.module.scss';
 
 const Component = ({
-  id, className, title, image, price, value, removeFromCart,
+  id, className, title, image, price, value, removeFromCart, updateValue,
 }) => (
   <div className={clsx(className, styles.root)}>
     <Table className={styles.table} aria-label="cart table">
@@ -44,11 +43,17 @@ const Component = ({
               <DeleteIcon />
             </Button>
           </TableCell>
+          <TableCell>
+            <input
+              type="number"
+              min="1"
+              max="10"
+              value={value}
+              onChange={(e) => updateValue({ id, value: parseInt(e.target.value) })}
+            />
+
+          </TableCell>
           <TableCell align="center" className={styles.tableCell}>
-            <p>
-              {' '}
-              {value}
-            </p>
             $
             {price}
           </TableCell>
@@ -66,6 +71,7 @@ Component.propTypes = {
   value: PropTypes.number,
   id: PropTypes.string,
   removeFromCart: PropTypes.func,
+  updateValue: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({
@@ -74,6 +80,7 @@ Component.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   removeFromCart: (id) => dispatch(removeFromCart(id)),
+  updateValue: ({ id, value }) => dispatch(updateValue({ id, value })),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);
