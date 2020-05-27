@@ -1,4 +1,28 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+ .root {
+  margin: 20px;
+  padding: 10px;
+  .orderCart {
+    width: 100%;
+  }
+  .orderTable {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-transform: uppercase;
+    .orderContent {
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .orderTotal {
+      font-size: 20px;
+    }
+  }
+  .buttonWrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+}

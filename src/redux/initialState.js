@@ -50,7 +50,25 @@ export const initialState = {
     },
   },
   cart: {
-    products: [],
-    total: 0,
+    products: [
+      {
+        id: '1',
+        title: 'book',
+        price: 10,
+        image: 'https://images.pexels.com/photos/5834/nature-grass-leaf-green.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+        value: 5,
+      },
+      {
+        id: '2',
+        title: 'sofa',
+        price: 100,
+        image: 'https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+        value: 2,
+      },
+    ],
+    total: 250,
+    order: [],
   },
 };

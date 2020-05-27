@@ -1,0 +1,18 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  .table {
+    .image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+    .tableCell {
+      width: 100px;
+      font-size: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}

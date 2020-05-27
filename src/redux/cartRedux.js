@@ -1,5 +1,6 @@
 /* selectors */
 export const getCart = ({ cart }) => cart.products;
+export const getTotal = ({ cart }) => cart.total;
 
 /* action name creator */
 const reducerName = 'cart';
@@ -10,12 +11,14 @@ const ADD_TO_CART = createActionName('ADD_TO_CART');
 const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 const UPDATE_VALUE = createActionName('UPDATE_VALUE');
 const ADD_NOTES = createActionName('ADD_NOTES');
+const SEND_ORDER = createActionName('SEND_ORDER');
 
 /* action creators */
 export const addToCart = (payload) => ({ payload, type: ADD_TO_CART });
 export const removeFromCart = (payload) => ({ payload, type: REMOVE_FROM_CART });
 export const updateValue = (payload) => ({ payload, type: UPDATE_VALUE });
 export const addNotes = (payload) => ({ payload, type: ADD_NOTES });
+export const sendOrder = (payload) => ({ payload, type: SEND_ORDER });
 
 /* thunk creators */
 
@@ -53,7 +56,12 @@ export const reducer = (statePart = [], action = {}) => {
         }),
       };
     }
-
+    case SEND_ORDER: {
+      return {
+        ...statePart,
+        order: action.payload,
+      };
+    }
     default:
       return statePart;
   }
