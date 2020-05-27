@@ -9,11 +9,13 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 const ADD_TO_CART = createActionName('ADD_TO_CART');
 const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 const UPDATE_VALUE = createActionName('UPDATE_VALUE');
+const ADD_NOTES = createActionName('ADD_NOTES');
 
 /* action creators */
 export const addToCart = (payload) => ({ payload, type: ADD_TO_CART });
 export const removeFromCart = (payload) => ({ payload, type: REMOVE_FROM_CART });
 export const updateValue = (payload) => ({ payload, type: UPDATE_VALUE });
+export const addNotes = (payload) => ({ payload, type: ADD_NOTES });
 
 /* thunk creators */
 
@@ -42,6 +44,16 @@ export const reducer = (statePart = [], action = {}) => {
         }),
       };
     }
+    case ADD_NOTES: {
+      return {
+        ...statePart,
+        products: statePart.products.map((product) => {
+          if (product.id === action.payload.id) return { ...product, notes: action.payload.notes };
+          return product;
+        }),
+      };
+    }
+
     default:
       return statePart;
   }
