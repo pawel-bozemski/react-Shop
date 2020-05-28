@@ -57,6 +57,7 @@ export const reducer = (statePart = [], action = {}) => {
       };
     }
     case SEND_ORDER: {
+      console.log('action.payload', action.payload);
       return {
         ...statePart,
         order: action.payload,
