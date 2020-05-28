@@ -13,7 +13,8 @@ import { addToCart } from '../../../redux/cartRedux';
 import styles from './ProductBox.module.scss';
 
 const Component = ({
-  className, title, image, price, id, addToCart,
+  className, title, image, price, _id, addToCart,
+
 }) => {
   const [value, setValue] = React.useState(1);
   const onChange = ({ target }) => {
@@ -36,13 +37,13 @@ const Component = ({
             <input type="number" min="1" max="10" value={value} onChange={onChange} />
           </CardContent>
           <CardActions>
-            <Button color="primary" href={`/products/${id}`} variant="outlined" size="small">More</Button>
+            <Button color="primary" href={`/products/${_id}`} variant="outlined" size="small">More</Button>
             <Button
               color="primary"
               variant="outlined"
               size="small"
               onClick={() => addToCart({
-                id, title, price, image, value,
+                _id, title, price, image, value,
               })}
             >
               Add to cart
@@ -59,7 +60,7 @@ Component.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   image: PropTypes.string,
-  id: PropTypes.string,
+  _id: PropTypes.string,
   addToCart: PropTypes.func,
 };
 

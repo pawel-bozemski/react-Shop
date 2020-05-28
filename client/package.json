@@ -13,17 +13,6 @@
     "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
     "eject": "react-scripts eject"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "yarn test-related --",
-      "eslint"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

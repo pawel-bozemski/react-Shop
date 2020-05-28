@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* selectors */
 export const getCart = ({ cart }) => cart.products;
 export const getTotal = ({ cart }) => cart.total;
@@ -35,7 +36,7 @@ export const reducer = (statePart = [], action = {}) => {
     case REMOVE_FROM_CART: {
       return {
         ...statePart,
-        products: statePart.products.filter((item) => item.id !== action.payload),
+        products: statePart.products.filter((item) => item._id !== action.payload),
       };
     }
     case UPDATE_VALUE: {
