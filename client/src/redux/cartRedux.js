@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-underscore-dangle */
 /* selectors */
@@ -41,6 +42,7 @@ export const loadCartRequest = () => (dispatch) => {
   localStorage.getItem('cart')
     ? savedCart = JSON.parse(localStorage.getItem('cart')) : savedCart = [];
   dispatch(fetchSuccess(savedCart));
+  console.log('savedCart', savedCart);
 };
 
 /* reducer */
@@ -91,7 +93,7 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         products: statePart.products.map((product) => {
-          if (product.id === action.payload.id) return { ...product, value: action.payload.value };
+          if (product._id === action.payload._id) return { ...product, value: action.payload.value };
           return product;
         }),
       };
@@ -100,7 +102,8 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         products: statePart.products.map((product) => {
-          if (product.id === action.payload.id) return { ...product, notes: action.payload.notes };
+          if (product._id === action.payload._id) return { ...product, notes: action.payload.notes };
+
           return product;
         }),
       };

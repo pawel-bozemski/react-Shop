@@ -16,7 +16,7 @@ import { removeFromCart, updateValue, addNotes } from '../../../redux/cartRedux'
 import styles from './CartBox.module.scss';
 
 const Component = ({
-  id, className, title, image, price, value, removeFromCart, updateValue, addNotes,
+  _id, className, title, image, price, value, removeFromCart, updateValue, addNotes,
 }) => (
   <div className={clsx(className, styles.root)}>
     <Table className={styles.table} aria-label="cart table">
@@ -31,7 +31,7 @@ const Component = ({
           <TableCell className={styles.tableCell}>
             <textarea
               placeholder="Type here if u want something changed"
-              onChange={(e) => addNotes({ id, notes: e.target.value })}
+              onChange={(e) => addNotes({ _id, notes: e.target.value })}
             />
           </TableCell>
           <TableCell className={styles.tableCell}>
@@ -39,7 +39,7 @@ const Component = ({
               color="secondary"
               variant="outlined"
               className={styles.delete}
-              onClick={() => removeFromCart(id)}
+              onClick={() => removeFromCart(_id)}
             >
               <DeleteIcon />
             </Button>
@@ -50,7 +50,7 @@ const Component = ({
               min="1"
               max="10"
               value={value}
-              onChange={(e) => updateValue({ id, value: parseInt(e.target.value) })}
+              onChange={(e) => updateValue({ _id, value: parseInt(e.target.value) })}
             />
 
           </TableCell>
@@ -70,7 +70,7 @@ Component.propTypes = {
   price: PropTypes.number,
   image: PropTypes.string,
   value: PropTypes.number,
-  id: PropTypes.string,
+  _id: PropTypes.string,
   removeFromCart: PropTypes.func,
   updateValue: PropTypes.func,
   addNotes: PropTypes.func,
@@ -81,9 +81,9 @@ Component.propTypes = {
 // });
 
 const mapDispatchToProps = (dispatch) => ({
-  removeFromCart: (id) => dispatch(removeFromCart(id)),
-  updateValue: ({ id, value }) => dispatch(updateValue({ id, value })),
-  addNotes: ({ id, notes }) => dispatch(addNotes({ id, notes })),
+  removeFromCart: (_id) => dispatch(removeFromCart(_id)),
+  updateValue: ({ _id, value }) => dispatch(updateValue({ _id, value })),
+  addNotes: ({ _id, notes }) => dispatch(addNotes({ _id, notes })),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);

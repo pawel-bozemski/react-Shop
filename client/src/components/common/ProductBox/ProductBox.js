@@ -13,7 +13,6 @@ import styles from './ProductBox.module.scss';
 
 const Component = ({
   className, title, image, price, _id, addToCart,
-
 }) => {
   const [value, setValue] = React.useState(1);
   const onChange = ({ target }) => {
@@ -66,9 +65,9 @@ Component.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   addToCart: ({
-    id, title, price, image, value,
+    _id, title, price, image, value,
   }) => dispatch(addToCart({
-    id, title, price, image, value,
+    _id, title, price, image, value,
   })),
 });
 
