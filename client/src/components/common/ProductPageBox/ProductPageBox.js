@@ -18,6 +18,14 @@ const Component = ({
     setValue(parseInt(target.value));
   };
 
+  const handleCart = ({
+    _id, title, price, image, value,
+  }) => {
+    addToCart({
+      _id, title, price, image, value,
+    });
+  };
+
   return (
     <div className={clsx(className, styles.root)}>
       <Card className={styles.card}>
@@ -42,7 +50,7 @@ const Component = ({
             className={styles.button}
             color="primary"
             variant="contained"
-            onClick={() => addToCart({
+            onClick={() => handleCart({
               _id, title, price, image, value,
             })}
           >

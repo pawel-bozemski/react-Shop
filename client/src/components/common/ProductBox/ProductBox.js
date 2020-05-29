@@ -5,7 +5,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
@@ -36,7 +35,7 @@ const Component = ({
             </div>
             <input type="number" min="1" max="10" value={value} onChange={onChange} />
           </CardContent>
-          <CardActions>
+          <CardContent>
             <Button color="primary" href={`/products/${_id}`} variant="outlined" size="small">More</Button>
             <Button
               color="primary"
@@ -48,7 +47,7 @@ const Component = ({
             >
               Add to cart
             </Button>
-          </CardActions>
+          </CardContent>
         </div>
       </Card>
     </div>

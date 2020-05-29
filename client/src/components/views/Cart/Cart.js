@@ -1,6 +1,7 @@
+/* eslint-disable react/prefer-stateless-function */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/forbid-prop-types */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -8,65 +9,94 @@ import Button from '@material-ui/core/Button';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { connect } from 'react-redux';
 import { CartBox } from '../../common/CartBox/CartBox';
-import { getCart } from '../../../redux/cartRedux';
+import { getCart, loadCartRequest, saveCartRequest } from '../../../redux/cartRedux';
 
 import styles from './Cart.module.scss';
 
-const Component = ({ className, cart }) => {
-  const [open, setOpen] = useState(false);
+class Component extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+  }
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  componentDidMount() {
+    const { loadCart } = this.props;
+    loadCart();
+  }
 
-  return (
-    <div className={clsx(className, styles.root)}>
-      <Button
-        className={styles.cartButton}
-        onClick={(e) => handleClick(e)}
-      >
-        <ShoppingBasketIcon size="large" />
-        <div className={styles.cartContent}>
-          {cart.length}
-        </div>
-      </Button>
-      {open ? (
-        <div className={styles.cartOpen}>
-          <div className={styles.cartBackground}>
-            <div className={styles.cartItems}>
-              {cart.length ? (cart.map((prod) => (<CartBox key={prod.id} {...prod} />)))
-                : (
-                  <div className={styles.cartEmpty}>
-                    <p>Your cart is empty</p>
-                  </div>
-                )}
-            </div>
-            {cart.length ? (
-              <div>
-                <Button color="primary" variant="contained" href="/orderSummary">Show my order</Button>
-              </div>
-            ) : null}
+  componentDidUpdate() {
+    const { saveCart, cart } = this.props;
+    saveCart(cart);
+  }
+
+  handleClick() {
+    const { isOpen } = this.state;
+    return isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true });
+  }
+
+  render() {
+    const { className, cart } = this.props;
+    const { isOpen } = this.state;
+    return (
+      <div className={clsx(className, styles.root)}>
+        <Button
+          className={styles.cartButton}
+          onClick={(e) => this.handleClick(e)}
+        >
+          <ShoppingBasketIcon size="large" />
+          <div className={styles.cartContent}>
+            {cart.length}
           </div>
-        </div>
-      ) : null}
-    </div>
-  );
-};
+        </Button>
+        {isOpen ? (
+          <div className={styles.cartOpen}>
+            <div className={styles.cartBackground}>
+              <div className={styles.cartItems}>
+                {cart.length ? (cart.map((prod) => (<CartBox key={prod.id} {...prod} />)))
+                  : (
+                    <div className={styles.cartEmpty}>
+                      <p>Your cart is empty</p>
+                    </div>
+                  )}
+              </div>
+              {cart.length ? (
+                <div>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    href="/orderSummary"
+                  >
+                    Show my order
+                  </Button>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        ) : null}
+      </div>
+    );
+  }
+}
 
 Component.propTypes = {
   className: PropTypes.string,
   cart: PropTypes.array,
+  saveCart: PropTypes.func,
+  loadCart: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
   cart: getCart(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  loadCart: () => dispatch(loadCartRequest()),
+  saveCart: (cart) => dispatch(saveCartRequest(cart)),
+});
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Container as Cart,
