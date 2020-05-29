@@ -12,7 +12,7 @@ import { Homepage } from './components/views/Homepage/Homepage';
 import { NotFound } from './components/views/NotFound/NotFound';
 import { Contact } from './components/views/Contact/Contact';
 import { OrderSummary } from './components/views/OrderSummary/OrderSummary';
-import { ProductPage } from './components/common/ProductPage/ProductPage';
+import { ProductPage } from './components/views/ProductPage/ProductPage';
 
 
 const theme = createMuiTheme({

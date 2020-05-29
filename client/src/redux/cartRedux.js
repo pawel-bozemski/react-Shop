@@ -30,7 +30,7 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         products: [...statePart.products, { ...action.payload }],
-        total: statePart.total + (action.payload.price),
+        total: statePart.total + (action.payload.price * action.payload.value),
       };
     }
     case REMOVE_FROM_CART: {

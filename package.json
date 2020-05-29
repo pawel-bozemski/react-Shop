@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all start:*",
-    "start:client": "cd client && npm run start",
     "start:server": "nodemon server.js",
+    "start:client": "cd client && npm run start",
     "build": "cd client && npm install && npm run build"
   },
   "dependencies": {

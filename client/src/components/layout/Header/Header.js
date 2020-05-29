@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import { Cart } from '../../common/Cart/Cart';
+import { Cart } from '../../views/Cart/Cart';
 import styles from './Header.module.scss';
 
 const Component = ({ className }) => (

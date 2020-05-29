@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { connect } from 'react-redux';
-import { CartBox } from '../CartBox/CartBox';
+import { CartBox } from '../../common/CartBox/CartBox';
 import { getCart } from '../../../redux/cartRedux';
 
 import styles from './Cart.module.scss';
