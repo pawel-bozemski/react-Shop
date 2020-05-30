@@ -186,7 +186,8 @@ class Component extends React.Component {
             <Button
               variant="contained"
               color="primary"
-              onClick={() => handleSubmit(order, cart, total + 5)}
+              href="/"
+              onClick={() => handleSubmit(order, cart, total)}
             >
               Proceed to payment
             </Button>
