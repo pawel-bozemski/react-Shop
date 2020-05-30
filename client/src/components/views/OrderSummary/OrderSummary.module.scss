@@ -5,6 +5,8 @@
   padding: 10px;
   .orderCart {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   .orderTable {
     display: flex;

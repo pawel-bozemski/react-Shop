@@ -173,7 +173,7 @@ class Component extends React.Component {
                 <TableCell className={clsx(styles.orderTotal, styles.orderContent)}>
                   <p>
                     total cost: $
-                    {total}
+                    {total + 5}
                   </p>
                 </TableCell>
               </TableRow>

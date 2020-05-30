@@ -48,11 +48,11 @@ export const reducer = (statePart = [], action = {}) => {
     case FETCH_SUCCESS: {
       return {
         ...statePart,
+        data: action.payload,
         loading: {
           active: false,
           error: false,
         },
-        data: action.payload,
       };
     }
     case FETCH_ERROR: {

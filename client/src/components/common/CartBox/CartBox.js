@@ -4,10 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
@@ -19,48 +15,44 @@ const Component = ({
   _id, className, title, image, price, value, removeFromCart, updateValue, addNotes,
 }) => (
   <div className={clsx(className, styles.root)}>
-    <Table className={styles.table} aria-label="cart table">
-      <TableBody>
-        <TableRow>
-          <TableCell className={styles.tableCell}>
-            <img src={image} alt="alternative" className={styles.image} />
-          </TableCell>
-          <TableCell className={styles.tableCell}>
-            {title}
-          </TableCell>
-          <TableCell className={styles.tableCell}>
-            <textarea
-              placeholder="Type here if u want something changed"
-              onChange={(e) => addNotes({ _id, notes: e.target.value })}
-            />
-          </TableCell>
-          <TableCell className={styles.tableCell}>
-            <Button
-              color="secondary"
-              variant="outlined"
-              className={styles.delete}
-              onClick={() => removeFromCart(_id)}
-            >
-              <DeleteIcon />
-            </Button>
-          </TableCell>
-          <TableCell className={styles.tableCell}>
-            <input
-              type="number"
-              min="1"
-              max="10"
-              value={value}
-              onChange={(e) => updateValue({ _id, value: parseInt(e.target.value) })}
-            />
+    <div className={styles.table} aria-label="cart table">
+      <div className={styles.tableCell}>
+        <img src={image} alt="alternative" className={styles.image} />
+      </div>
+      <div className={styles.tableCell}>
+        {title}
+      </div>
+      <div className={styles.tableCell}>
+        <textarea
+          placeholder="Type here if u want something changed"
+          onChange={(e) => addNotes({ _id, notes: e.target.value })}
+        />
+      </div>
+      <div className={styles.tableCell}>
+        <Button
+          color="secondary"
+          variant="outlined"
+          className={styles.delete}
+          onClick={() => removeFromCart(_id)}
+        >
+          <DeleteIcon />
+        </Button>
+      </div>
+      <div className={styles.tableCell}>
+        <input
+          type="number"
+          min="1"
+          max="10"
+          value={value}
+          onChange={(e) => updateValue({ _id, value: parseInt(e.target.value) })}
+        />
 
-          </TableCell>
-          <TableCell align="center" className={styles.tableCell}>
-            $
-            {price}
-          </TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+      </div>
+      <div align="center" className={styles.tableCell}>
+        $
+        {price}
+      </div>
+    </div>
   </div>
 );
 

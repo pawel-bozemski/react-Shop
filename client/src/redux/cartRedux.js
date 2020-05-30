@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-underscore-dangle */
@@ -72,10 +73,20 @@ export const reducer = (statePart = [], action = {}) => {
       };
     }
     case ADD_TO_CART: {
+      const { products } = statePart;
+      if (products.length) {
+        let isProductInCart = false;
+        for (const prod of products) {
+          if (prod._id === action.payload._id) isProductInCart = true;
+        }
+        return {
+          ...statePart,
+          products: isProductInCart ? [...products] : [...products, { ...action.payload }],
+        };
+      }
       return {
         ...statePart,
-        products: [...statePart.products, { ...action.payload }],
-        total: statePart.total + (action.payload.price * action.payload.value),
+        products: [{ ...action.payload }],
       };
     }
     case REMOVE_FROM_CART: {
@@ -98,7 +109,6 @@ export const reducer = (statePart = [], action = {}) => {
         ...statePart,
         products: statePart.products.map((product) => {
           if (product._id === action.payload._id) return { ...product, notes: action.payload.notes };
-
           return product;
         }),
       };
