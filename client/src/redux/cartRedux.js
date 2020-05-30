@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-underscore-dangle */
 import axios from 'axios';
+import { API_URL } from '../config';
 
 /* selectors */
 export const getCart = ({ cart }) => cart.products;
@@ -53,7 +54,7 @@ export const sendOrderRequest = (order) => {
     dispatch(fetchStarted());
 
     axios
-      .post('http://localhost:8000/api/order', order)
+      .post(`${API_URL}/order`, order)
       .then((res) => {
         dispatch(sendOrder(res));
       })
