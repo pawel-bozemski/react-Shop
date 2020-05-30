@@ -6,12 +6,13 @@
   "author": "Pawel Bozemski <paw.boz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all start:*",
-    "start:server": "nodemon server.js",
-    "start:client": "cd client && npm run start",
-    "build": "cd client && npm install && npm run build"
+    "start": "set NODE_ENV='production' && node server.js",
+    "start-dev": "npm-run-all -l -p start:*",
+    "start:server": "set NODE_ENV='dev' && ./node_modules/.bin/nodemon server.js",
+    "start:client": "cd client && yarn start",
+    "build": "cd client && yarn install && yarn build"
   },
-  "dependencies": {
+    "dependencies": {
     "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
