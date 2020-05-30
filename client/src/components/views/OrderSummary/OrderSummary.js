@@ -18,7 +18,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { OrderBox } from '../../common/OrderBox/OrderBox';
 
-import { getCart, getTotal, sendOrder } from '../../../redux/cartRedux';
+import { getCart, getTotal, sendOrderRequest } from '../../../redux/cartRedux';
 
 import styles from './OrderSummary.module.scss';
 
@@ -186,7 +186,7 @@ class Component extends React.Component {
             <Button
               variant="contained"
               color="primary"
-              onClick={() => handleSubmit(order, cart, total)}
+              onClick={() => handleSubmit(order, cart, total + 5)}
             >
               Proceed to payment
             </Button>
@@ -210,7 +210,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  sendOrder: ({ order, cart, total }) => dispatch(sendOrder({ order, cart, total })),
+  sendOrder: ({ order, cart, total }) => dispatch(sendOrderRequest({ order, cart, total })),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

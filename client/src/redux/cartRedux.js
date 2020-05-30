@@ -2,6 +2,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-underscore-dangle */
+import axios from 'axios';
+
 /* selectors */
 export const getCart = ({ cart }) => cart.products;
 export const getTotal = ({ cart }) => cart.products.reduce((total, product) => product.price * product.value + total, 0);
@@ -43,6 +45,22 @@ export const loadCartRequest = () => (dispatch) => {
   localStorage.getItem('cart')
     ? savedCart = JSON.parse(localStorage.getItem('cart')) : savedCart = [];
   dispatch(fetchSuccess(savedCart));
+};
+
+export const sendOrderRequest = (order) => {
+  console.log('order', order);
+  return (dispatch) => {
+    dispatch(fetchStarted());
+
+    axios
+      .post('http://localhost:8000/api/order', order)
+      .then((res) => {
+        dispatch(sendOrder(res));
+      })
+      .catch((err) => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
 };
 
 /* reducer */
