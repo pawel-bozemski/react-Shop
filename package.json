@@ -10,7 +10,7 @@
     "start-dev": "npm-run-all -l -p start:*",
     "start:server": "set NODE_ENV='dev' && ./node_modules/.bin/nodemon server.js",
     "start:client": "cd client && npm start",
-    "build": "cd client && npm install && npm build"
+    "build": "cd client && npm install && npm run build"
   },
     "dependencies": {
     "connect-mongo": "^3.2.0",
