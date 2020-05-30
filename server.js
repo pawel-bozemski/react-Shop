@@ -34,7 +34,7 @@ app.use((req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/reactShop', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://Pawcio:pawciobawcio@cluster0-5lmdn.gcp.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true, dbName: "reactShop" });
 const db = mongoose.connection;
 
 db.once('open', () => {
